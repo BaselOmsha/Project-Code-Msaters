@@ -25,9 +25,9 @@ const userSchema = new mongoose.Schema({
         type: String,
     },
     dob : {
-        type: string,
+        type: String,
         require: true
     }
 });
 
-module.exports = mongoose.model('User', productSchema);
+module.exports = mongoose.model('User', userSchema);
