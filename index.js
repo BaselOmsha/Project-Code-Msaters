@@ -11,6 +11,15 @@ app.use(express.urlencoded({ extended: false }));
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main'
 }));
+app.set("view engine", "handlebars");
+
+app.get("/", (req,res)=>{
+    res.render("logIn");
+});
+
+app.get("/registration", (req,res)=>{
+    res.render("createAccount");
+});
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority';
 
