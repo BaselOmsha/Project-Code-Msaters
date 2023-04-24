@@ -9,7 +9,7 @@ const signupForm = async (req, res) => {
     });
 }
 
-// loop through emails
+// check for emails 
 const checkEmail = async (email) => {
     const checkEmail = await User.find({ email: email });
     if (checkEmail.length > 0) {
