@@ -7,7 +7,7 @@ const Post = require('../models/Post');
 
 const guestPage = async(req,res)=>{
     //let Posts = schemas.Posts;
-    let posts = await Post.find({Username:Username,Content:Content,Date:Date});
+    let posts = await Post.find({});
     console.log(posts)
     if(posts){
         res.render("guestPage",posts)
