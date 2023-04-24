@@ -22,7 +22,7 @@ mongoose.connect(dbURI)
     .catch(error => console.log(error));
 
 
-app.use('', require('./routes/login.js'));
+app.use('', require('./routes/routes.js'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`App listening port ${PORT}`));
