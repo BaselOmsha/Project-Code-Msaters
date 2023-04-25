@@ -19,3 +19,8 @@ In this project we are building a social media platform using NodeJS and MongoDB
 ## Models used:
 1. User
 2. Post (planing phase)
+
+## Libraries
+1. bcrypt: a library to help you hash passwords. More info [NPM](https://www.npmjs.com/package/bcrypt).
+
+
