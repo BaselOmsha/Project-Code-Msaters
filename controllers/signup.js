@@ -38,7 +38,7 @@ const signup = async (req, res) => {
         const lastname = req.body.lastname;
         const email = req.body.email;
         const paswd = req.body.password;
-        const salt = 16;
+        const salt = 14;
         const hashedPaswd = await encrypt(paswd,salt);
         const month = req.body.month;
         const day = req.body.day;
