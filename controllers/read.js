@@ -15,3 +15,4 @@ const guestPage = async(req,res)=>{
 module.exports ={
     guestPage
 };
+
