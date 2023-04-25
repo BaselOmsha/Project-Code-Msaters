@@ -1,7 +1,7 @@
 {
   "name": "project-code-msaters",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this project we are building a social media platform using NodeJS and MongoDB. The website is meant for developers to connect, share their ideas, and see current open positions in the industry. In the main page a user can login, signup, or continue as a guest to browse the posts. When a user registers and once loggeed in they can create posts and edit their profile info. In addition, the website will be built follwoing Web Content Accessibility Guidlines (WCAG) particually WCAG 2.1 and aiming to achieve a success criteria of AA. That will ensure the webiste content is precieveble, oprable, and understandable. More info about accessibility can be found at [W3C](https://www.w3.org/WAI/fundamentals/).",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -15,7 +15,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
-    "mongoose": "^7.0.4"
+    "handlebars": "^4.7.7",
+    "mongoose": "^7.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
