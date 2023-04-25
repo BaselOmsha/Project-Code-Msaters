@@ -1,16 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-
-const User = require('../models/User');
 const Post = require('../models/Post');
 
 
 const guestPage = async(req,res)=>{
     //let Posts = schemas.Posts;
-    let posts = await Post.find({});
+    const posts = await Post.find();
+
     console.log(posts)
     if(posts){
-        res.render("guestPage",posts)
+        res.render("guestPage",{posts})
+        // res.send(posts);
     }
 };
 
