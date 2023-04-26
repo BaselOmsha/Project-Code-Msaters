@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const productCOntroller = require('../controllers/login.js');
+const loginController = require('../controllers/login.js');
 
 
 // router.get('/', async (req,res) => {
     
 // });
 
-router.get('/', productCOntroller.home);
+router.get('/', loginController.home);
+router.get('/', loginController.getUser);
 
 module.exports =  router;
