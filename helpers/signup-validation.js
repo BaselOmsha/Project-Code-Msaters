@@ -70,7 +70,8 @@ const validateSignupForm =
                 minLength: 8,
                 minUppercase: 1,
                 minLowercase: 1,
-                minSymbols: 1
+                minSymbols: 1,
+                minNumbers: 1
             })
             .withMessage('Password should be 8 charachters or longer, contain at least one uppercase, lowercase and a special charachter')
             .escape(),
