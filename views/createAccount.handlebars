@@ -1,24 +1,51 @@
-<link rel="stylesheet" href="../css/signup.css" />
-<form id="myForm" action="../signup" method="post">
+<form id="signupForm" action="../signup" method="post" novalidate>
 	<h1>Registration form</h1>
-	<div class="form-group">
-		<label for="firstName">First Name</label>
-		<input type="text" class="form-control" id="firstName" name="firstname" required>
+	<div class="frm-group">
+		<label for="firstname">First Name</label>
+		{{#if errors.firstname }}
+		<input type="text" class="frm-control" id="firstname" name="firstname" value="{{values.firstname}}" required>
+		<p>{{ errors.firstname }}</p>
+		{{else}}
+		<input type="text" class="frm-control" id="firstname" name="firstname" value="" required>
+		{{/if}}
 	</div>
-	<div class="form-group">
-		<label for="lastName">Last Name</label>
-		<input type="text" class="form-control" id="lastName" name="lastname" required>
+	<div class="frm-group">
+		<label for="lastname">Last Name</label>
+		{{#if errors.lastname }}
+		<input type="text" class="frm-control" id="lastname" name="lastname" value="{{values.lastname}}" required>
+		<p>{{ errors.lastname }}</p>
+		{{else}}
+		<input type="text" class="frm-control" id="lastname" name="lastname" required>
+		{{/if}}
 	</div>
-	<div class="form-group">
+	<div class="frm-group">
 		<label for="email">Email address</label>
-		<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-			placeholder="example@gmail.com" required>
+		{{#if errors.email }}
+		<input type="email" class="frm-control" id="email" name="email" value="{{values.email}}" required>
+		<p>{{ errors.email }}</p>
+		{{else}}
+		<input type="email" class="frm-control" id="email" name="email" placeholder="example@gmail.com" required>
+		{{/if}}
 	</div>
-	<div class="form-group">
+	<div class="frm-group">
 		<label for="password">Password</label>
-		<input type="password" class="form-control" id="password" name="password"  required>
+		{{#if errors.password }}
+		<input type="password" class="frm-control" id="password" name="password" value="{{values.password}}" required>
+		<p>{{ errors.password }}</p>
+		{{else}}
+		<input type="password" class="frm-control" id="password" name="password" required>
+		{{/if}}
 	</div>
-	<div class="form-group">
+	<div class="frm-group">
+		<label for="paswdConfirm">Confirm Password</label>
+		{{#if errors.paswdConfirm }}
+		<input type="password" class="frm-control" id="paswdConfirm" name="paswdConfirm" value="{{values.paswdConfirm}}"required>
+		<p>{{ errors.paswdConfirm }}</p>
+		{{else}}
+		<input type="password" class="frm-control" id="paswdConfirm" name="paswdConfirm" required>
+		{{/if}}
+	</div>
+	<div class="frm-group">
 		<label for="dob">Birthday</label>
 		<select id="dob" required name="month">
 			<option value="" style="display: none">Month</option>
@@ -34,7 +61,8 @@
 			<option value="October">Oct</option>
 			<option value="November">Nov</option>
 			<option value="December">Dec</option>
-		</select> <select id="dob" required name="day">
+		</select>
+		<select id="dob" required name="day">
 			<option value="" style="display: none">Day</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -67,7 +95,8 @@
 			<option value="29">29</option>
 			<option value="30">30</option>
 			<option value="31">31</option>
-		</select> <select id="dob" required name="year">
+		</select>
+		<select id="dob" required name="year">
 			<option value="" style="display: none">Year</option>
 			<option value="2022">2022</option>
 			<option value="2021">2021</option>
@@ -193,10 +222,19 @@
 			<option value="1901">1901</option>
 			<option value="1900">1900</option>
 		</select>
+		{{#if errors.month }}
+			<p>{{ errors.month }}</p>
+		{{/if}}	
+		{{#if errors.day }}
+			<p>{{ errors.day }}</p>
+		{{/if}}	
+		{{#if errors.year }}
+			<p>{{ errors.year }}</p>
+		{{/if}}
 	</div>
-	<div class="form-group">
+	<div class="frm-group">
 		<label for="gender">Gender</label>
-		<select class="form-control" id="gender" name="gender">
+		<select class="frm-control" id="gender" name="gender">
 			<option>Male</option>
 			<option>Female</option>
 			<option>Other</option>
@@ -204,4 +242,3 @@
 	</div>
 	<input type="submit" class="btn btn-primary" value="Sign Up">
 </form>
-<script src="../js/signup-scripts.js"></script>

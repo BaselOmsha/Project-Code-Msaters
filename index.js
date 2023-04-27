@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const handlebars = require("handlebars");
 
 require('dotenv').config();
 
@@ -16,12 +17,15 @@ app.engine('handlebars', exphbs.engine({
 }));
 app.set("view engine", "handlebars");
 
-const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://' + process.env.DBUSER + ':' + process.env.DBPASSWD + '' + process.env.CLUSTER + '.mongodb.net/' + process.env.DB + '?retryWrites=true&w=majority';
 
 mongoose.connect(dbURI)
     .then(result => console.log("Database connected"))
     .catch(error => console.log(error));
 
+handlebars.registerHelper('or', function (a, b) {
+    return a || b;
+});
 
 app.use('', require('./routes/routes.js'));
 
