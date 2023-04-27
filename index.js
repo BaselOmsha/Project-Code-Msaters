@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const handlebars = require("handlebars");
 require('dotenv').config();
 
 const app = express();
@@ -21,7 +22,6 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
 mongoose.connect(dbURI)
     .then(result => console.log("Database connected"))
     .catch(error => console.log(error));
-
 
 app.use('', require('./routes/login.js'));
 
