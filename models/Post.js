@@ -2,18 +2,22 @@ const mongoose = require('mongoose');
 
 const readSchema = new mongoose.Schema({
 
-    Username : {
+    username : {
         type: String,
         require: true
     },
-    Content : {
+    content : {
         type: String,
         require: true
     },
-    Date : {
+    date : {
         type: Date,
         default:Date.now
     },
+    img :{
+        type: String,
+        require: true
+    }
 
 });
 

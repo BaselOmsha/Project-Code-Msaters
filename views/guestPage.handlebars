@@ -1,2 +1,17 @@
-<p>{{posts}}</p>
+
+
+      <section class="welcome">
+      <h2>Welcome to the guest page!</h2>
+      <p>Here you can find latest posts by our users. You can also contribute by adding your own posts. To add your own post please make sure that you are signed in or register as a user in the codeMaster</p>
+      </section>
+      <h2 class="latestPost">Latest Posts</h2>
+   
+      {{#each posts}}
+      <article class="post">
+        <p class="username">{{username}}</p>
+        <p class="content">{{content}}</p>
+        <p class="date">{{date}}</p>
+       <!--  <img src="{{img}}" alt="post image">-->
+      </article>
+      {{/each}}
 
