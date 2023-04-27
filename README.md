@@ -8,7 +8,9 @@ In this project we are building a social media platform using NodeJS and MongoDB
 2. Sign up (passwored is hashed)
 3. Edit profile info
 4. Write posts
-5. see all posts
+5. See all posts
+6. Edit and delete posts
+7. Delete porfile
 
 ## Optional functions (if enough time is left)⌛:
 1. Upload profile picture
