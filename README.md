@@ -24,4 +24,5 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 ## Libraries
 1. bcrypt: a library to help you hash passwords. More info [NPM](https://www.npmjs.com/package/bcrypt).
+2. express-validator: express-validator is a set of express.js middlewares that wraps the extensive collection of validators and sanitizers offered by validator.js. It allows you to combine them in many ways so that you can validate and sanitize your express requests, and offers tools to determine if the request is valid or not, which data was matched according to your validators, and so on. More info [express-validator](https://express-validator.github.io/docs).
 
