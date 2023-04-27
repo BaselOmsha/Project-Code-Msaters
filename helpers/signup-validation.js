@@ -1,5 +1,4 @@
 const User = require('../models/User');
-const encrypt = require("../helpers/paswdEncryption.js");
 const { body, validationResult } = require('express-validator');
 
 const firstname = 'firstname';
@@ -15,7 +14,7 @@ const validateSignupForm =
             .notEmpty()
             .withMessage(`${firstname} is empty`)
             .isLength({ min: 2 })
-            .withMessage('firstname is too short')
+            .withMessage('the first name is too short')
             .escape(), //  To prevent Cross-Site Scripting vulnerability (XSS).
 
         body(lastname)
@@ -23,7 +22,7 @@ const validateSignupForm =
             .notEmpty()
             .withMessage(`${lastname} is empty`)
             .isLength({ min: 2 })
-            .withMessage('lastname is too short')
+            .withMessage('The last name is too short')
             .escape(),
 
         body(month)
@@ -56,25 +55,24 @@ const validateSignupForm =
             .custom(async (email) => {
                 const user = await User.find({ email: email });
                 if (user.length > 0) {
-                    throw new Error('E-mail already in use');
+                    throw new Error('E-mail is already in use');
                 }
                 return true;
             })
-            .withMessage('E-mail already in use')
+            .withMessage('E-mail is already in use')
             .escape(),
 
         body('password')
             .trim()
             .notEmpty()
             .withMessage('Password field is empty')
-            .isLength({ min: 8 })
-            .withMessage('Password is too short. Minimum 8 charachters long')
             .isStrongPassword({
+                minLength: 8,
                 minUppercase: 1,
                 minLowercase: 1,
                 minSymbols: 1
             })
-            .withMessage('Missing an uppercase, lowercase or a special charachter')
+            .withMessage('Password should be 8 charachters or longer, contain at least one uppercase, lowercase and a special charachter')
             .escape(),
 
         body('paswdConfirm')
@@ -87,32 +85,23 @@ const validateSignupForm =
                 }
                 return true
             })
-
     ];
+
 
 const validation = async (req, res, next) => {
     const result = validationResult(req).array();
-
     if (!result.length) {
         return next();
     }
-
     const errors = {};
-
     result.forEach((error) => {
         const field = error.path;
         const message = error.msg;
-        if (message === 'Passwords do not match') {
-            errors['passwords'] = message;
-        } else {
-            errors[field] = message;
-        }
+        errors[field] = message;
     });
-
     console.log(errors);
     const { firstname, lastname, email, password, confirmPassword, birthMonth, birthDay, birthYear, gender } = req.body;
     const values = { firstname, lastname, email, password, confirmPassword, birthMonth, birthDay, birthYear, gender };
-
     res.render('createAccount', { errors, values });
 };
 

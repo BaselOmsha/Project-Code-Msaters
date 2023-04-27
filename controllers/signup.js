@@ -9,18 +9,19 @@ const signupForm = async (req, res) => {
     });
 }
 
-// check for emails 
-const checkEmail = async (email) => {
-    const checkEmail = await User.find({ email: email });
-    if (checkEmail.length > 0) {
-        console.log(checkEmail + "is already in use");
-        return true;
-    } else {
-        return false;
-    }
-}
+// check for emails. Now express validator does it
+// const checkEmail = async (email) => {
+//     const checkEmail = await User.find({ email: email });
+//     if (checkEmail.length > 0) {
+//         console.log(checkEmail + "is already in use");
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
-// Signup finction creating a user
+
+// Signup function. creating a user
 const signup = async (req, res) => {
     try {
         const firstname = req.body.firstname;
@@ -52,17 +53,17 @@ const signup = async (req, res) => {
                 firstname: firstname, lastname: lastname, email: email,
                 password: hashedPaswd, dob: formattedDate, gender: gender
             }
-            if (await checkEmail(email) === false) {
-                const user = await User.insertMany(newUser);
-                if (user) {
-                    res.status(201).send("user added successfully");
-                    console.log("user added successfully")
-                } else {
-                    res.status(400).send("something went wrong!");
-                }
+            // if (await checkEmail(email) === false) {
+            const user = await User.insertMany(newUser);
+            if (user) {
+                res.status(201).send("user added successfully");
+                console.log("user added successfully")
             } else {
-                return res.status(403).send("Email already in use!!!");
+                res.status(400).send("something went wrong!");
             }
+            // } else {
+            //     return res.status(403).send("Email already in use!!!");
+            // }
         }
 
     } catch (error) {
