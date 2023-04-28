@@ -14,9 +14,11 @@ const calcAge = async (month, day, year) => {
         // return "Date of birth entered (" + intCalcualtedAge + ") is valid.";
     } else {
         console.log("You must be older than therteen to use our service!");
-        return "You must be older than thirteen to use our service!";
+        return "You must be older than 13 to use our service!";
     }
 }
+// Un-comment for test with Code Runner extension
+// calcAge('12','10','2010')
 
 module.exports = {
     calcAge

@@ -74,7 +74,7 @@ const validateSignupForm =
                 minSymbols: 1,
                 minNumbers: 1
             })
-            .withMessage('Password must contain numbers, lowercase, uppercase, symbol')
+            .withMessage('Password must contain numbers, lowercase, uppercase, and symbols.')
             .escape(),
 
         body('paswdConfirm')
@@ -103,7 +103,7 @@ const validation = async (req, res, next) => {
     });
     console.log(errors);
     const { firstname, lastname, email, password, paswdConfirm, month, day, year, gender } = req.body;
-    const agevarify = await calcAge(month, day, year)
+    const agevarify = await calcAge(month, day, year) // validate age
     const values = { firstname, lastname, email, password, paswdConfirm, month, day, year, gender };
     res.render('createAccount', { errors, values, agevarify });
 };
