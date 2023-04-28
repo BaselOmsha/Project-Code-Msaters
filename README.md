@@ -5,7 +5,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 ## Priority Functions❗:
 1. Login
-2. Sign up (passwored is hashed)
+2. Sign up (Hashed passwored and validation)
 3. Edit profile info
 4. Write posts
 5. See all posts
@@ -23,6 +23,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 2. Post (planing phase)
 
 ## Libraries📔📔📗
-1. bcrypt: a library to help you hash passwords. More info [NPM](https://www.npmjs.com/package/bcrypt).
+1. bcrypt: a library to help you hash passwords. More info [bcrypt](https://www.npmjs.com/package/bcrypt).
 2. express-validator: express-validator is a set of express.js middlewares that wraps the extensive collection of validators and sanitizers offered by validator.js. It allows you to combine them in many ways so that you can validate and sanitize your express requests, and offers tools to determine if the request is valid or not, which data was matched according to your validators, and so on. More info [express-validator](https://express-validator.github.io/docs).
+3. get-age: get-age calculates the age in years for a given birth date.[calculate-age](https://www.npmjs.com/package/get-age).
 

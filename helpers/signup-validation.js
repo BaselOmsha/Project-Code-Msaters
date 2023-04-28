@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
+const { calcAge } = require('./ageValidation.js');
 
 const firstname = 'firstname';
 const lastname = 'lastname';
@@ -101,9 +102,10 @@ const validation = async (req, res, next) => {
         errors[field] = message;
     });
     console.log(errors);
-    const { firstname, lastname, email, password, confirmPassword, birthMonth, birthDay, birthYear, gender } = req.body;
-    const values = { firstname, lastname, email, password, confirmPassword, birthMonth, birthDay, birthYear, gender };
-    res.render('createAccount', { errors, values });
+    const { firstname, lastname, email, password, paswdConfirm, month, day, year, gender } = req.body;
+    const agevarify = await calcAge(month, day, year)
+    const values = { firstname, lastname, email, password, paswdConfirm, month, day, year, gender };
+    res.render('createAccount', { errors, values, agevarify });
 };
 
 module.exports = {

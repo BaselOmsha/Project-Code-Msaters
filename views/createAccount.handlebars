@@ -51,7 +51,7 @@
 			</div>
 			<div class="signup-form-row" role="fieldset">
 				<label class="signup-field-lables" for="dob">Date of Birth</label>
-					<select class="signup-field-inputs2" id="dob" name="month" >
+					<select class="signup-field-inputs2" id="dob" name="month" required>
 						<option value="">Month</option>
 						<option value="January">Jan</option>
 						<option value="February">Feb</option>
@@ -66,7 +66,7 @@
 						<option value="November">Nov</option>
 						<option value="December">Dec</option>
 					</select>
-					<select class="signup-field-inputs2" id="dob" name="day">
+					<select class="signup-field-inputs2" id="dob" name="day" required>
 						<option value="">Day</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -100,7 +100,7 @@
 						<option value="30">30</option>
 						<option value="31">31</option>
 					</select>
-					<select class="signup-field-inputs2" id="dob" name="year">
+					<select class="signup-field-inputs2" id="dob" name="year" required>
 						<option value="">Year</option>
 						<option value="2023">2023</option>
 						<option value="2022">2022</option>
@@ -227,7 +227,7 @@
 						<option value="1901">1901</option>
 						<option value="1900">1900</option>
 					</select>
-				<span class="sign-err" id="birthday-error">{{ errors.month }} {{ errors.day }} {{ errors.year }}</span>
+				<span class="sign-err" id="birthday-error">{{ errors.month }} {{ errors.day }} {{ errors.year }} {{agevarify}}</span>
 			</div>
 			<div class="signup-form-row">
 				<label class="signup-field-lables" for="gender">Gender <span

@@ -4,7 +4,7 @@ const router = express.Router();
 const loginController = require('../controllers/login.js');
 const signupController = require('../controllers/signup.js');
 const readController = require("../controllers/read.js");
-const { validateSignupForm, validation, validation2, } = require('../helpers/signup-validation.js');
+const { validateSignupForm, validation } = require('../helpers/signup-validation.js');
 // const validate = require('../helpers/signup-validation.js');
 
 router.get('/', loginController.home);
