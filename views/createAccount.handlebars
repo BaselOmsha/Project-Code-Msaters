@@ -7,12 +7,8 @@
 			<ul>
 				<li>All fields are required unless marked with (optional).</li>
 				<li>For the first and last name fields, ensure they are at least 2 characters long.</li>
-				<li>For the email field, ensure it's a valid email address, not already in use, and normalized to a
-					standard
-					format.</li>
-				<li>For the password field, ensure it's strong (at least 8 characters long, with at least one uppercase,
-					one
-					lowercase, one symbol, and one number).</li>
+				<li>For the email field, ensure it's a valid email address, and not already in use.</li>
+				<li>For the password field, ensure it's strong (at least 8 characters long, with at least one uppercase, one lowercase, one symbol, and one number).</li>
 				<li>For the password confirmation field, ensure it matches the password field.</li>
 				<li>You must be 13 years or older to create an account and use our services!</li>
 			</ul>
@@ -52,7 +48,7 @@
 			</div>
 			<div class="signup-form-row" role="fieldset">
 				<label class="signup-field-lables" for="dob">Date of Birth</label>
-					<select class="signup-field-inputs2" id="dob" name="month" required>
+					<select class="signup-field-inputs2" id="dob" name="month" aria-describedby="birthday-error" required>
 						<option value="">Month</option>
 						<option value="January">Jan</option>
 						<option value="February">Feb</option>
@@ -67,7 +63,7 @@
 						<option value="November">Nov</option>
 						<option value="December">Dec</option>
 					</select>
-					<select class="signup-field-inputs2" id="dob" name="day" required>
+					<select class="signup-field-inputs2" id="dob" name="day" aria-describedby="birthday-error" required>
 						<option value="">Day</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -101,7 +97,7 @@
 						<option value="30">30</option>
 						<option value="31">31</option>
 					</select>
-					<select class="signup-field-inputs2" id="dob" name="year" required>
+					<select class="signup-field-inputs2" id="dob" name="year" aria-describedby="birthday-error" required>
 						<option value="">Year</option>
 						<option value="2023">2023</option>
 						<option value="2022">2022</option>
