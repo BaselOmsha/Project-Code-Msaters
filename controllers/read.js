@@ -1,12 +1,12 @@
 const Post = require('../models/Post');
 
-const guestPage = async(req,res)=>{
+const guestPage = async (req, res) => {
     const posts = await Post.find();
 
     console.log(posts)
-    if(posts){
+    if (posts) {
         const simplifiedPosts = posts.map(post => {
-            return { 
+            return {
                 username: post.username,
                 content: post.content,
                 date: post.date,
@@ -14,7 +14,7 @@ const guestPage = async(req,res)=>{
 
             };
         });
-        res.render("guestPage", { posts: simplifiedPosts });
+        res.render("guestPage", { Title: "Guest Page - Code Masters", posts: simplifiedPosts });
     }
 };
 

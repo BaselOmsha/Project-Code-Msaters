@@ -14,7 +14,7 @@ const validateSignupForm =
             .notEmpty()
             .withMessage(`${firstname} is empty`)
             .isLength({ min: 2 })
-            .withMessage('the first name is too short')
+            .withMessage('The first name is too short')
             .escape(), //  To prevent Cross-Site Scripting vulnerability (XSS).
 
         body(lastname)
@@ -28,13 +28,13 @@ const validateSignupForm =
         body(month)
             .trim()
             .notEmpty()
-            .withMessage(`${month} is empty`)
+            .withMessage(`${month} is empty,`)
             .escape(),
 
         body(day)
             .trim()
             .notEmpty()
-            .withMessage(`${day} is empty`)
+            .withMessage(`${day} is empty,`)
             .escape(),
 
         body(year)
@@ -73,7 +73,7 @@ const validateSignupForm =
                 minSymbols: 1,
                 minNumbers: 1
             })
-            .withMessage('Password should be 8 charachters or longer, contain at least one uppercase, lowercase and a special charachter')
+            .withMessage('Password must contain numbers, lowercase, uppercase, symbol')
             .escape(),
 
         body('paswdConfirm')

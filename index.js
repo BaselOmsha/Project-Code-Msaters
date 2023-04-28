@@ -23,9 +23,6 @@ mongoose.connect(dbURI)
     .then(result => console.log("Database connected"))
     .catch(error => console.log(error));
 
-handlebars.registerHelper('or', function (a, b) {
-    return a || b;
-});
 
 app.use('', require('./routes/routes.js'));
 

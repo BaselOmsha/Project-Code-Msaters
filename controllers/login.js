@@ -6,6 +6,7 @@ const User = require('../models/User');
 const home = async (req,res) => {
     // res.send('My MVC App');
     res.render('logIn', {
+        Title:"Login Page - Code Masters"
         // page_title: "Library",
         // content: data
     });

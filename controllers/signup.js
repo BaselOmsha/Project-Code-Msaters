@@ -5,7 +5,7 @@ const encrypt = require("../helpers/paswdEncryption.js");
 const signupForm = async (req, res) => {
     // res.send('My MVC App');
     res.render('createAccount', {
-
+        Title: "Signup Page - Code Masters"
     });
 }
 

@@ -1,30 +1,32 @@
-h1{
+h1 {
+  font-size: 30px;
+  text-align: center;
+  color: blue;
+  padding-top: 3rem;
+  font-family: 'Bruno Ace SC', cursive !important;
+}
 
-        font-size: 30px;
-        text-align: center;
-        color: blue;
-        padding-top: 3rem;
-        font-family: 'Bruno Ace SC', cursive !important;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #b1bec7 !important;
-    color: #333;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  footer{
-    margin: 0 auto;
-    padding-top: 2em;
-  }
-  .navbar ul{
-    margin-left: 39rem;
-    font-size: 1.5em;
-  }
-  .navbar-brand{
-    font-family: 'Bruno Ace SC', cursive;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b1bec7 !important;
+  color: #333;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+.navbar ul {
+  margin-left: 39rem;
+  font-size: 1.5em;
+}
+
+.navbar-brand {
+  font-family: 'Bruno Ace SC', cursive;
+}
