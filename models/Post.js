@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const readSchema = new mongoose.Schema({
+/*     _id:{
+        type: String,
+        require: true
+    },   */
 
     username : {
         type: String,
@@ -14,11 +18,12 @@ const readSchema = new mongoose.Schema({
         type: Date,
         default:Date.now
     },
-    img :{
+/*     img :{
         type: String,
         require: true
-    }
+    } */
 
 });
 
 module.exports = mongoose.model('Post', readSchema,);
+//const Post = require("../models/Post");
