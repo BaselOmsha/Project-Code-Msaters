@@ -67,13 +67,14 @@ In this project we are building a social media platform using NodeJS and MongoDB
           
           ![Picture2](https://user-images.githubusercontent.com/90252817/235223128-127f4fa4-2561-4b15-8842-1cc610792c07.png)
           
-          During the development, NVDA was periodically used to test if the screen reader gets all the necessary information in the right order while navigating with the keyboard. The documentation source used for this implementation: 
-          1. (https://www.w3.org/WAI/tutorials/forms/)
-          2. (https://venngage.com/tools/accessible-color-palette-generator)
-         
-         Testing the page with different tools:
-          1. Testing videos with NVDA: (https://kaltura.hamk.fi/media/t/0_x3mhh5tp) 
-          2. Testing video with WAVE and siteimprove: (https://kaltura.hamk.fi/media/t/0_xms5d2d9)
+          During the development, NVDA was periodically used to test if the screen reader gets all the necessary information in the right order while navigating with the keyboard. 
+	  
+		After further testing it was noticed when the page is zoomed to 200% and over, or the device screen is changed in the inspect, form elements become hidden and inaccessible. The issue was solved simply by using a combination of “max-width”, “min-width" and “flex-direction” column. The testing video [the test](https://kaltura.hamk.fi/media/t/0_a9vosmoa) 
+
+		  The documentation source used for this implementation: 
+		  1. https://www.w3.org/WAI/tutorials/forms/
+		  2. https://venngage.com/tools/accessible-color-palette-generator
+
 
 
  
