@@ -1,16 +1,19 @@
 <div class="center">
   <h1>Login</h1>
-  <form method="post">
+  {{#if messages.error}}
+  {{messages.error}}
+  {{/if}}
+  <form method="post" action="../login">
     <div class="txt_field">
-      <input type="text" required>
-      <label>Username</label>
+      <label for="email">Username</label>
+      <input type="text" id="email" name="email" placeholder="example@gmail.com" required>
     </div>
     <div class="txt_field">
-      <input type="text" required>
-      <label>Password</label>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
     </div>
     <div class="password">Forgot Password</div>
-    <input type="submit" value="Login">
+    <button type="submit">Log in</button>
     <div class="create_account">Don't have an account <a href="../registration">Signup</a></div>
     <div class="create_account">Don't have an account <a href="../guest">Continue to the main page</a></div>
   </form>

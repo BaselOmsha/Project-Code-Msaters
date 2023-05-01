@@ -1,18 +1,38 @@
 const express = require('express');
 const router = express.Router();
-
-const loginController = require('../controllers/login.js');
+const passport = require('passport');
+const session = require('express-session');
+const loginController = require('../controllers/login-logout.js');
 const signupController = require('../controllers/signup.js');
 const readController = require("../controllers/read.js");
 const { validateSignupForm, validation } = require('../helpers/signup-validation.js');
 // const validate = require('../helpers/signup-validation.js');
 
-router.get('/', loginController.home);
+// Main and login page
+router.get('/', loginController.checkNotAuthenticated, loginController.home);
 
-router.get('/registration', signupController.signupForm);
+// profile page landing after login
+router.get('/profile', loginController.isAuthenticated, loginController.profile);
 
+// loginauthentication with passport
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/',
+    faliureFlash: true,
+}), (req, res) => {
+    console.log('the request: ' + req.user); // Add this line
+});
+
+// Logout function
+router.post('/logout', loginController.logout);
+
+// Signup page
+router.get('/registration', loginController.checkNotAuthenticated, signupController.signupForm);
+
+// Signup function
 router.post('/signup', validateSignupForm, validation, signupController.signup);
 
+// no authentication
 router.get("/guest", readController.guestPage);
 
 module.exports = router;

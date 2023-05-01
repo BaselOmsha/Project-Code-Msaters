@@ -28,8 +28,7 @@ const signup = async (req, res) => {
         const lastname = req.body.lastname;
         const email = req.body.email;
         const paswd = req.body.password;
-        const salt = 14;
-        const hashedPaswd = await encrypt(paswd, salt);
+        const hashedPaswd = await encrypt(paswd);
         const month = req.body.month;
         const day = req.body.day;
         const year = req.body.year;
@@ -56,7 +55,7 @@ const signup = async (req, res) => {
             // if (await checkEmail(email) === false) {
             const user = await User.insertMany(newUser);
             if (user) {
-                res.status(201).send("user added successfully");
+                res.status(201).redirect("../");
                 console.log("user added successfully")
             } else {
                 res.status(400).send("something went wrong!");
