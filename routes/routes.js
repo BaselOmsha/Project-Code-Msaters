@@ -15,12 +15,18 @@ router.post('/signup', signupController.signup);
 
 router.get("/guest",readController.guestPage);
 
+
+router.get("/guest/:_id",readController.deletePost);
+router.get("/guest/deleteById/:_id",readController.deletePostById);
+
+
+router.get('/guest/edit/:_id', readController.editPost);
+router.post('/guest/update/:_id', readController.updatePost);
+ 
+
+
 //router.post("/guest/delete/:_id",readController.deletePost);
-router.get("/guest/:_id",readController.deletePost)
-
 //router.post("/guest/delete/:_id",readController.deletePostById);
-router.get("/guest/:_id",readController.deletePostById)
-
 //router.post("/deletePost/:postId", deleteController.deletePost);
 //router.get("/deletePost/:postId", deleteController.deletePost);
 

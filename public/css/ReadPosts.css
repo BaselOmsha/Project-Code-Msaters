@@ -1,5 +1,5 @@
 .post {
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
@@ -12,9 +12,27 @@
   .post p {
     margin: 0;
     padding: 5px;
-    
-
+    font-size: 1.5em;
   }
+  .edit-form {
+    display: none;
+  }
+  .delete-edit{
+    background-color: brown;
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    
+  }
+  .delete-edit:hover{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+  }
+  
   
   .post .username {
     font-weight: bold;
@@ -23,12 +41,14 @@
   
   .post .date {
     color: #ffffff;
-    font-size: 14px;
+    background-color: black;
+    font-size: 0.8em;
+    margin-bottom: 20px;
   }
   .latestPost {
     text-align: center;
     margin-right: 52rem;
-    color:#553c9a ;
+    color:#2d224c ;
   }
   .welcome{
     padding: 10px;
@@ -36,6 +56,10 @@
     width: 40%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  p{
+    font-size: 1.2em;
   }
   
   

@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+//const template = Handlebars.compile(source, { allowProtoMethodsByDefault: true });
 
 const guestPage = async (req, res) => {
   try {
@@ -38,6 +39,7 @@ const deletePostById = async (postId) => {
 
 const deletePost = async (req, res) => {
   try {
+  
     const postId = req.params._id;
     await deletePostById(postId);
     res.redirect("/guest");
@@ -45,10 +47,41 @@ const deletePost = async (req, res) => {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
+}; 
+
+ const editPost = async (req, res) => {
+  const postId = req.params._id;
+  console.log(postId);
+  const postToEdit = await Post.findOne({ _id: postId });
+  console.log(postToEdit);
+  res.render('editPage', { _id: postToEdit._id, content:postToEdit.content });
 };
 
+
+
+const updatePost = async (req, res) => {
+  try {
+    const postId = req.params._id;
+    const content = req.body.content;
+
+    console.log("Post ID:", postId);
+    console.log("Updated Content:", content);
+
+    await Post.updateOne({ _id: postId }, { content: content });
+
+    res.redirect('/guest');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+
+ 
 module.exports = {
   guestPage,
   deletePost,
-  deletePostById
+  deletePostById,
+  editPost,
+  updatePost 
 };
