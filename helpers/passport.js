@@ -13,7 +13,7 @@ const verifyCallback = async (email, password, done) => {
         const user = await User.findOne({ email: email });
         console.log('User: ' + user);
         if (!user) {
-            return done(null, false, { message: 'Incorrect email or password.' })
+            return done(null, false, { message: 'Incorrect email or password. Check your credentials and try again!' })
         }
         const verify = await bcrypt.compare(password, user.password)
         console.log("Passwords match: " + verify);
@@ -22,7 +22,7 @@ const verifyCallback = async (email, password, done) => {
             // console.log(user);
             return done(null, user);
         } else {
-            return done(null, false, { message: 'Incorrect email or password.' });
+            return done(null, false, { message: 'Incorrect email or password. Check your credentials and try again!' });
         }
     } catch (error) {
         return done(error)

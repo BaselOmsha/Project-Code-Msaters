@@ -25,16 +25,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(flash());
+// To store session data in a MongoDB database. This allows session data to persist even if the server is restarted.
 const sessionStore = MongoStore.create({
     mongoUrl: dbURI, mongoOptions: dbOptions, collection: 'session'
 });
+// Create a session to keep track of user data across requests
 app.use(session({
     secret: process.env.KEY,
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
     cookie: {
-        maxAge: 14 * 24 * 60 * 60 // = 14 days. Default
+        // maxAge: 14 * 24 * 60 * 60 // = 14 days. Default
+        maxAge: 3600000 // 1 hour
     }
 }));
 

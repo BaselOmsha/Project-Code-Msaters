@@ -6,9 +6,8 @@ const home = async (req, res) => {
     // res.send('My MVC App');
     res.render('logIn', {
         Title: "Login Page - Code Masters",
-        errors: "Invalid email or password",
-        // page_title: "Library",
-        // content: data
+        // errors: "Invalid email or password",
+        messages: req.flash('error'),
     });
 }
 

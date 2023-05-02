@@ -1,13 +1,12 @@
 <div class="center">
   <h1>Login</h1>
-  {{#if messages.error}}
-  {{messages.error}}
-  {{/if}}
   <form method="post" action="../login">
+    {{messages}}
     <div class="txt_field">
       <label for="email">Username</label>
       <input type="text" id="email" name="email" placeholder="example@gmail.com" required>
     </div>
+
     <div class="txt_field">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>

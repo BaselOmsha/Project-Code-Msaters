@@ -16,7 +16,7 @@ router.get('/profile', loginController.isAuthenticated, loginController.profile)
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/profile',
     failureRedirect: '/',
-    faliureFlash: true,
+    failureFlash: true,
 }), (req, res) => {
     console.log('the request: ' + req.user); // Add this line
 });
