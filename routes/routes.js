@@ -22,7 +22,7 @@ router.post('/login', passport.authenticate('local', {
 });
 
 // Logout function
-router.post('/logout', loginController.logout);
+router.get('/logout', loginController.logout);
 
 // Signup page
 router.get('/registration', loginController.checkNotAuthenticated, signupController.signupForm);
