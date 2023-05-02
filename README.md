@@ -8,24 +8,26 @@ In this project we are building a social media platform using NodeJS and MongoDB
 2. [X] Sign up (Hashed passwored and validation)
 3. [ ] Edit profile info
 4. [ ] Write posts
-5. [ ] See all posts
-6. [ ] Edit and delete posts
+5. [X] See all posts
+6. [X] Edit and delete posts
 7. [ ] Delete porfile
 
-## Optional functionalities (if enough time is left)⌛:
-1. Upload profile picture
-2. Upload post picture
-3. See real time registered users numbers in a s side banner
-4. Add freinds
+## Optional functionalities (if enough time is left)⌛ (completed are marked with✔️):
+1. [ ] Upload profile picture 
+2. [ ] Upload post picture
+3. [ ] See real time registered users numbers in a s side banner
+4. [ ] Add freinds
 
 ## Models used:
 1. User
 2. Post (planing phase)
 
-## Libraries📔📔📗
+## Libraries 📔📔📗
 1. bcrypt: a library to help you hash passwords. More info [bcrypt](https://www.npmjs.com/package/bcrypt).
 2. express-validator: express-validator is a set of express.js middlewares that wraps the extensive collection of validators and sanitizers offered by validator.js. It allows you to combine them in many ways so that you can validate and sanitize your express requests, and offers tools to determine if the request is valid or not, which data was matched according to your validators, and so on. More info [express-validator](https://express-validator.github.io/docs).
 3. get-age: get-age calculates the age in years for a given birth date.[calculate-age](https://www.npmjs.com/package/get-age).
+4. passport: Passport is middleware for Node.js that makes it easy to implement authentication and authorization.https://www.passportjs.org/docs/.
+5. express-flash: Flash is an extension of connect-flash with the ability to define a flash message and render it without redirecting the request. https://www.npmjs.com/package/express-flash
 
 ## Resposabilities per developer
 ### Janica Närhi
