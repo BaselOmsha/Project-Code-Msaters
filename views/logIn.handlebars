@@ -1,16 +1,25 @@
-<div class="center">
-  <h1>Login</h1>
-  <form method="post">
+<main>
+  <header>
+    <h1>Login</h1>
+    {{#if messages.error}}
+    <p role="alert">{{messages.error}}</p>
+    {{/if}}
+  </header>
+  <form method="post" action="../login" title="Login Form" name="login-form">
     <div class="txt_field">
-      <input type="text" required>
-      <label>Username</label>
+      <label for="username">Username</label>
+      <input type="username" id="username" name="username" required>
     </div>
-      <div class="txt_field">
-      <input type="text" required>
-      <label>Password</label>
+    <div class="txt_field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
     </div>
-    <div class="password">Forgot Password</div>
-    <input type="submit" value="Login">
-    <div class="create_account">Don't have an account <a href="http://localhost:3000/registration">Signup</a></div>
+    <div class="forgot_password">
+      <label for="password">Forgot your password?</label>
+      <a href="./controllers/forgot-password">Get a new password</a>
+    </div>
+    <button type="submit" aria-label="Log In">Log in</button>
+    <div class="create_account">Don't have an account <a href="../registration">Signup</a></div>
+    <div class="create_account">Don't have an account <a href="../guest">Continue to the main page</a></div>
   </form>
-</div>
+</main>  
