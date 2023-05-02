@@ -2,37 +2,61 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 
 const User = require('../models/User');
 
 //home/root
-const loginForm = async (req,res) => {
+const home = async (req,res) => {
     res.render('login', {
-        
+        Title: "Login page",
+        errors: "invalid username or password"
     });
 }
 
-//password hashing and salting
-const encrypt = async (password, salt) => {
-    try {
-        const hashedPassword = await bcrypt.hash(password, salt);
-        return hashedPassword;
+//authentication
+const isAuthenticated = async (req,res,next) => {
+    if (req.isAuthenticated()) {
+        return next();
     }
-    catch (error) {
-        console.log("Error with password hashing" + error);
+    else {
+        res.redirect("../");
     }
 }
+const checkNotAuthenticated = (req,res,next) => {
+    if (req.isAuthenticated()) {
+        return res.redirect("../profile");
+    }
+    next();
+}
+const profile = async (req, res) => {   
+    res.render('profile', {
+        Title: "Profile Page - Code Masters",
+        Name: req.user.firstname + " " + req.user.lastname
+        // page_title: "Library",
+        // content: data
+    });
+}
+
+//logout
+const logout = (req, res, next) => {
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        res.redirect('../');
+    });;
+};
+
+
 
 //get one user
 const login = async (req,res) => {
     try { 
         const username = await User.findByUsername(username);
-        const password = await User.findByhashedPassword(hashedPassword);
-        res.render('index', {
+        const password = await User.findByPassword(password);
+        res.render("../profile", {
             username : username.toJSON(),
-            hashedPassword : hashedPassword.toJSON()
+            password : password()
         });
     }
     catch (err) {
@@ -42,7 +66,9 @@ const login = async (req,res) => {
     
 
 module.exports = {
-    encrypt,
-    loginForm,
-    login
+    home,
+    profile,
+    isAuthenticated,
+    checkNotAuthenticated,
+    logout
 };

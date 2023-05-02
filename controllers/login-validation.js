@@ -1,3 +1,4 @@
+/*
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 
@@ -46,3 +47,4 @@ module.exports = {
     validateLoginForm,
     validation
 };
+*/
