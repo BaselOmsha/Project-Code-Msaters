@@ -1,25 +1,27 @@
-<main>
-  <header>
-    <h1>Login</h1>
+<div class="login-form-main-area" aria-labelledby="login-heading">
+  <div class="login-title">
+    <h1 id="login-heading">Log In</h1>
     {{#if messages.error}}
     <p role="alert">{{messages.error}}</p>
     {{/if}}
-  </header>
-  <form method="post" action="../login" title="Login Form" name="login-form">
-    <div class="txt_field">
-      <label for="username">Username</label>
-      <input type="username" id="username" name="username" required>
-    </div>
-    <div class="txt_field">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <div class="forgot_password">
-      <label for="password">Forgot your password?</label>
-      <a href="./controllers/forgot-password">Get a new password</a>
-    </div>
-    <button type="submit" aria-label="Log In">Log in</button>
-    <div class="create_account">Don't have an account <a href="../registration">Signup</a></div>
-    <div class="create_account">Don't have an account <a href="../guest">Continue to the main page</a></div>
-  </form>
-</main>  
+  </div>
+  <div class="login form" role="form" aria-labelledby="login-form">
+    <form id="login-form" method="post" action="../login" title="Login Form">
+      <div class="login-form-row">
+        <label class="login-field-lable" for="username">Username</label>
+        <input class="login-field-input" type="username" id="username" name="username" required>
+      </div>
+      <div class="login-form-row">
+        <label class="login-field-lable" for="password">Password</label>
+        <input class="login-field-input" type="password" id="password" name="password" required>
+      </div>
+      {{!-- <div class="forgot-password-form">
+        <label class="forgot-password-label" for="password">Forgot your password?</label>
+        <a href="./controllers/forgot-password">Get a new password</a>
+      </div> --}}
+      <button class="loginbutton" id="login" type="submit">Log in</button>
+      <div class="create_account">Don't have an account <a href="../registration">Signup</a></div>
+      <div class="create_account">Don't have an account <a href="../guest">Continue to the main page</a></div>
+    </form>
+  </div>
+</div>
