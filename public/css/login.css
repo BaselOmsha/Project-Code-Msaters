@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 .login-title {
@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2546f0;
+    /*background-color: #f3f4f8;*/
     max-width: 100%;
     min-width: 100%;
     color: #ffffff;

@@ -6,6 +6,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const bcrypt = require('bcrypt');
+const LocalStrategy = require('passport-local').Strategy;
 require('./helpers/passport.js');
 require('dotenv').config();
 
@@ -40,12 +41,19 @@ app.use(session({
 }));
 
 app.use(passport.initialize());
-// app.use(passport.session());
-app.use(passport.authenticate('session'));
-app.use((req, res, next) => {
+app.use(passport.session());
+//app.use(passport.authenticate('session'));
+//app.use((req, res, next) => {
     // if(req.session.passport.user !== null)
-    console.log(req.session);
-    console.log(req.user);
+    //console.log(req.session);
+    //console.log(req.user);
+    //next();
+//});
+
+app.use((req, res, next) => {
+    if (req.isAuthenticated()) {
+        console.log('Authenticated user: ' + req.user);
+    }
     next();
 });
 

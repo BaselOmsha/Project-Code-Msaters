@@ -1,9 +1,9 @@
 const User = require('../models/User');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
-const customeFields = {
+const customFields = {
     usernameField: 'username',
     passwordField: 'password'
 };
@@ -21,7 +21,8 @@ const verifyCallback = async (username, password, done) => {
             console.log('validation worked');
             // console.log(user);
             return done(null, user);
-        } else {
+        } 
+        else {
             return done(null, false, { message: 'Incorrect username or password.' });
         }
     } catch (error) {
@@ -29,7 +30,7 @@ const verifyCallback = async (username, password, done) => {
     }
 }
 
-const strategy = new LocalStrategy(customeFields, verifyCallback);
+const strategy = new LocalStrategy(customFields, verifyCallback);
 passport.use(strategy);
 
 passport.serializeUser(function (user, done) {
