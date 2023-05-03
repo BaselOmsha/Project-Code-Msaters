@@ -14,7 +14,7 @@ router.post('/login', passport.authenticate('local', {
     console.log('the request: ' + req.user);
 });
 
-//router.get('/newpassword');
+//router.get('/newpassword', loginController.newpassword);
 
 router.get('/profile', loginController.isAuthenticated, loginController.profile);
 

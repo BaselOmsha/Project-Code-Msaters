@@ -31,7 +31,8 @@ const profile = async (req, res) => {
 const isAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
-    } else {
+    } 
+    else {
         res.redirect("../");
     }
 }
@@ -48,11 +49,22 @@ const logout = (req, res, next) => {
         res.redirect('../');
     });;
 };
-
+/*
+//new password
+const newpassword = (req,res, next) => {
+    if (req.newpassword()) {
+        return res.redirect("../newpassword");
+    }
+    else {
+        res.redirect("../");
+    }
+};
+*/
 module.exports = {
     home,
     profile,
     isAuthenticated,
     checkNotAuthenticated,
     logout
+    //newpassword
 };
