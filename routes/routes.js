@@ -3,7 +3,7 @@ const router = express.Router();
 
 const loginController = require('../controllers/login.js');
 const signupController = require('../controllers/signup.js');
-const readController = require("../controllers/read.js");
+const readController = require("../controllers/loggedInUser.js");//change the routes
 //const deleteController = require("../controllers/deletePost.js");
 
 
