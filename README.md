@@ -5,7 +5,7 @@ To switch between views in VScode, press Ctrl+Shift+V in the editor.
 ## Description 📝
 
 In this project we are building a social media platform using NodeJS and MongoDB. The website is meant for developers to connect, share their ideas, and see current open positions in the industry. In the main page a user can login, signup, or continue as a guest to browse the posts. When a user registers and once loggeed in they can create posts and edit their profile info. In addition, the website will be built follwoing Web Content Accessibility Guidlines (WCAG) particually WCAG 2.1 and aiming to achieve a success criteria of AA. That will ensure the webiste content is precieveble, oprable, and understandable. More info about accessibility can be found at [W3C](https://www.w3.org/WAI/fundamentals/).
-***********
+****
 ## Priority functionalities❗ (completed are marked with☑️):
 
 1. [ ] Login
@@ -15,30 +15,30 @@ In this project we are building a social media platform using NodeJS and MongoDB
 5. [X] See all posts
 6. [X] Edit and delete posts
 7. [ ] Delete porfile
-***********
+***
 ## Optional functionalities (if enough time is left)⌛ (completed are marked with☑️):
 1. [ ] Upload profile picture 
 2. [ ] Upload post picture
 3. [ ] See real time registered users numbers in a s side banner
 4. [ ] Add freinds
-***********
+***
 ## Models used:
 1. User
-2. Post (planing phase)
-***********
+2. Post
+***
 ## Libraries 📔📔📗
 1. bcrypt: a library to help you hash passwords. More info [bcrypt](https://www.npmjs.com/package/bcrypt).
 2. express-validator: express-validator is a set of express.js middlewares that wraps the extensive collection of validators and sanitizers offered by validator.js. It allows you to combine them in many ways so that you can validate and sanitize your express requests, and offers tools to determine if the request is valid or not, which data was matched according to your validators, and so on. More info [express-validator](https://express-validator.github.io/docs).
 3. get-age: get-age calculates the age in years for a given birth date.[calculate-age](https://www.npmjs.com/package/get-age).
 4. passport: Passport is middleware for Node.js that makes it easy to implement authentication and authorization.https://www.passportjs.org/docs/.
 5. express-flash: Flash is an extension of connect-flash with the ability to define a flash message and render it without redirecting the request. https://www.npmjs.com/package/express-flash
-***********
+***
 ## Resposabilities per developer
 ### Janica Närhi
-***********
+***
 ### Nori Alija
-***********
-### Basil Omsha: 
+***
+### Basil Omsha (branches used: profile, signup(deleted)): 
 1. Signup page: 
     1. Created a function to allow user to create an account and save it to the database. An express-validator function named "signup-validation" is created to validate:
           1. First and last name length
@@ -82,7 +82,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 		  The documentation source used for this implementation: 
 		  1. https://www.w3.org/WAI/tutorials/forms/
 		  2. https://venngage.com/tools/accessible-color-palette-generator
-***********
+***
 
 
  
