@@ -1,0 +1,30 @@
+<header class="Head">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">codeMaster</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <a class="nav-link" href="../AuthPage">Main Page<span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="../profile">Profile</a>
+        </li>
+          {{#if firstname}}
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+            <p>{{firstname}} {{lastname}}</p>
+          </li>
+          {{else}}
+          <li class="nav-item active">
+            <a class="nav-link" href="../">Login<span class="sr-only">(current)</span></a>
+          </li>
+          {{/if}}
+      </ul>
+    </div>
+  </nav>
+  {{!-- <h1>codeMaster</h1> --}}
+</header>

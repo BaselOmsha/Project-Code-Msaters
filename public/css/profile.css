@@ -1,0 +1,95 @@
+.profile-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: brown;
+    width: 100%;
+}
+
+.profile-left-upper-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: auto;
+    width: 30%;
+    padding: 2%;
+}
+
+.profile-right-lower-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51, 255, 0);
+    height: auto;
+    width: 70%;
+    padding: 5%;
+}
+
+@media screen and (max-width:990px) {
+    .profile-main {
+        flex-wrap: wrap;
+    }
+    .profile-left-upper-block:first-child {
+        flex-basis: 100%;
+    }
+    .profile-right-lower-block:nth-child(2) {
+        flex-basis: 100%;
+    }
+}
+
+.edit-profile {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:590px) {
+    .profile-right-lower-block {
+        flex-wrap: wrap;
+    }
+    .profile-desc-card:first-child {
+        flex-basis: 100%;
+    }
+    .profile-hobbies-card:nth-child(2) {
+        flex-basis: 100%;
+    }
+}
+
+
+.profile-desc-card{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height: auto;
+    max-width: 400px;
+    min-width: 300px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin: 50px;
+
+}
+
+.profile-hobbies-card{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height: auto;
+    max-width: 400px;
+    min-width: 300px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin: 50px;
+}

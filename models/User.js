@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    id : {
-        type: Number,
-        require: true
-    },
+
+    // username : {
+    //     type: String,
+    //     require: true
+    // },
     firstname : {
         type: String,
         require: true
@@ -27,6 +28,13 @@ const userSchema = new mongoose.Schema({
     dob : {
         type: String,
         require: true
+    }
+    ,
+    description: {
+        type: String
+    },
+    hobbies:  {
+        type: String
     }
 });
 
