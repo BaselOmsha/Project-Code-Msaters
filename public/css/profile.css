@@ -1,0 +1,19 @@
+.profile-upper-block {
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.profile-lower-block {
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+section{
+    background-color: aqua;
+}
