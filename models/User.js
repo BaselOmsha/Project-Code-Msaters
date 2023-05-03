@@ -24,6 +24,12 @@ const userSchema = new mongoose.Schema({
     },
     gender : {
         type: String,
+    },
+    description: {
+        type: String
+    },
+    hobbies:  {
+        type: String
     }
 });
 

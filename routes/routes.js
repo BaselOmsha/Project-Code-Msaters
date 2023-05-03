@@ -5,6 +5,8 @@ const loginController = require('../controllers/login-logout.js');
 const signupController = require('../controllers/signup.js');
 const readController = require("../controllers/read.js");
 const { validateSignupForm, validation } = require('../helpers/signup-validation.js');
+const { editPage, updateProfile } = require('../controllers/edit-profile.js');
+const { validateProfileForm, validationProfile } = require('../helpers/edit-profile-validation.js');
 
 // Main and login page
 router.get('/', loginController.checkNotAuthenticated, loginController.home);
@@ -30,7 +32,13 @@ router.get('/registration', loginController.checkNotAuthenticated, signupControl
 // Signup function
 router.post('/signup', validateSignupForm, validation, signupController.signup);
 
-// no authentication
+// guest user. Not authentication
 router.get("/guest", readController.guestPage);
+
+// edit profile page
+router.get('/edit-profile/:_id', loginController.isAuthenticated, editPage)
+
+// Update function
+router.post('/update-profile/:_id', loginController.isAuthenticated, /*alidateProfileForm, validationProfile,*/ updateProfile);
 
 module.exports = router;

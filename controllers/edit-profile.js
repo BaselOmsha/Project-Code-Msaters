@@ -5,7 +5,7 @@ const User = require('../models/User');
 const editPage = async (req, res) => {
     res.render('edit-profile', {
         Title: req.user.firstname + " " + req.user.lastname + " - Code Masters",
-        id: req.user._id,
+        _id: req.user._id,
         firstname: req.user.firstname,
         lastname: req.user.lastname,
         email: req.user.email,
@@ -21,6 +21,7 @@ const editPage = async (req, res) => {
 
 const updateProfile = async (req, res) => {
     try {
+        const userId = req.params._id;
         const firstname = req.body.firstname;
         const lastname = req.body.lastname;
         const email = req.body.email;
@@ -35,30 +36,23 @@ const updateProfile = async (req, res) => {
         // console.log(formattedDate);
         const gender = req.body.gender;
 
-        // console.log(req.body);
-        // const paivays = new Date()
-
-        if (!firstname || !lastname || !email || !paswd || !formattedDate) {
+        if (!firstname || !lastname || !email || !formattedDate) {
             res.status(400).send(
                 { msg: 'info missing' }
             )
         } else {
-            const newUser = {
-                firstname: firstname, lastname: lastname, email: email,
-                dob: formattedDate, gender: gender
-            }
-            // if (await checkEmail(email) === false) {
-            const user = await User.updateOne({ firstname: firstname }, { $set: { newUser } })
-
+            const user = await User.updateOne({ _id: userId }, {
+                $set: {
+                    firstname: firstname, lastname: lastname, email: email,
+                    dob: formattedDate, gender: gender
+                }
+            })
             if (user) {
                 res.status(202).location("../profile").redirect("../profile");
                 console.log("user added successfully")
             } else {
                 res.status(400).send("something went wrong!");
             }
-            // } else {
-            //     return res.status(403).send("Email already in use!!!");
-            // }
         }
 
     } catch (error) {

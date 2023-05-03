@@ -5,6 +5,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const handlebars = require("handlebars");
 require('./helpers/passport');
 require('dotenv').config();
 
@@ -49,6 +50,10 @@ app.use((req, res, next) => {
     console.log(req.session);
     console.log(req.user);
     next();
+});
+
+handlebars.registerHelper("eq", function (a, b) {
+    return a === b;
 });
 
 app.use('', require('./routes/routes.js'));

@@ -1,28 +1,49 @@
-<section class="profile-upper-block">
-
-    <div class="username">
+<div class="profile-main">
+    <section class="profile-left-upper-block">
         <h1>
             {{firstname}}
-                {{lastname}}
+            {{lastname}}
         </h1>
-    </div>
-</section>
-<section class="profile-lower-block">
-    <h2>Profile Details</h2>
-    <ul>
-        <li>
-            <strong>Email:</strong>
-            {{email}}
-        </li>
-        <li>
-            <strong>Date of Birth:</strong>
-            {{day}}
-               {{month2}}
+        <div class="basic-info">
+            <ul>
+                <li>
+                    <strong>Email:</strong>
+                    {{email}}
+                </li>
+                <li>
+                    <strong>Date of Birth:</strong>
+                    {{day}}
+                    {{month2}}
                     {{year}}
-        </li>
-        <li>
-            <strong>Gender:</strong>
-            {{gender}}
-        </li>
-    </ul>
-</section>
+                </li>
+                <li>
+                    <strong>Gender:</strong>
+                    {{gender}}
+                </li>
+            </ul>
+        </div>
+        <a href="./edit-profile/{{_id}}" class="edit-profile" role="button">Edit your info<i class="fa fa-edit" aria-hidden="true"></i></a>
+    </section>
+    <section class="profile-right-lower-block">
+        <section class="profile-desc-card">
+            <li>
+                <strong>Description:</strong>
+                {{#if description}}
+                <P>{{description}}</P>
+                {{else}}
+                <ul>Nothing yet</ul>
+                {{/if}}
+            </li>
+        </section>
+        <section class="profile-hobbies-card">
+            <li>
+                <strong>Hobbies:</strong>
+                {{#if hobbies}}
+                <P>{{hobbies}}</P>
+                {{else}}
+                <ul>Nothing yet</ul>
+                {{/if}}
+            </li>
+        </section>
+    </section>
+</div>

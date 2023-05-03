@@ -53,14 +53,20 @@ const validateProfileForm =
             .normalizeEmail()
             .isEmail()
             .withMessage('Invalid email format')
-            .custom(async (email, id) => {
+            .custom(async (email) => {
+                // const id = req.body._id
+                // console.log("tesssssssssssst!!!!: " + id);
                 const user = await User.find({ email: email }, {email:1, _id:1});
-                if (user.length > 0 && id !== user._id) {
-                    throw new Error('E-mail is already in use');
+                console.log("tesssssssssssst!!!!: " + user._id +user.email);
+                if (user.length > 0 && !user._id) {
+                    throw new Error('E-mail is already in use!');
+                } else if(user.length > 0 && user._id) {
+                    console.log("good email");
+                    return true;
                 }
                 return true;
             })
-            .withMessage('E-mail is already in use')
+            // .withMessage('E-mail is already in use')
             .escape(),
     ];
 
@@ -77,9 +83,9 @@ const validationProfile = async (req, res, next) => {
         errors[field] = message;
     });
     console.log(errors);
-    const { firstname, lastname, email, password, paswdConfirm, month, day, year, gender } = req.body;
+    const { _id, firstname, lastname, email, password, paswdConfirm, month, day, year, gender } = req.body;
     const agevarify = await calcAge(month, day, year) // validate age
-    const values = { firstname, lastname, email, password, paswdConfirm, month, day, year, gender };
+    const values = { _id, firstname, lastname, email, password, paswdConfirm, month, day, year, gender };
     res.render('edit-profile', { errors, values, agevarify });
 };
 

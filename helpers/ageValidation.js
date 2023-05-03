@@ -17,8 +17,8 @@ const calcAge = async (month, day, year) => {
         return "You must be older than 13 to use our service!";
     }
 }
-// Un-comment for test with Code Runner extension
-// calcAge('12','10','2010')
+// // Un-comment for test with Code Runner extension
+// calcAge('02','14','2012')
 
 module.exports = {
     calcAge
