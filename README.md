@@ -8,9 +8,9 @@ In this project we are building a social media platform using NodeJS and MongoDB
 ****
 ## Priority functionalities❗ (completed are marked with☑️):
 
-1. [ ] Login
+1. [X] Login
 2. [X] Sign up (Hashed passwored and validation)
-3. [ ] Edit profile info
+3. [X] Edit profile info
 4. [ ] Write posts
 5. [X] See all posts
 6. [X] Edit and delete posts
