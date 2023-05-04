@@ -31,6 +31,8 @@ router.get("/guest/deleteById/:_id", loginController.isAuthenticated, readContro
 
 router.get('/guest/edit/:_id', loginController.isAuthenticated, readController.editPost);
 router.post('/guest/update/:_id', loginController.isAuthenticated, readController.updatePost);
+router.post('/create-post', loginController.isAuthenticated, readController.createPost);
+
 
 
 // loginauthentication with passport

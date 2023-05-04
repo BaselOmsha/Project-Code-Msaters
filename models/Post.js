@@ -15,8 +15,8 @@ const readSchema = new mongoose.Schema({
         require: true
     },
     date : {
-        type: Date,
-        default:Date.now
+        type: String,
+        //default:Date.now
     },
 /*     img :{
         type: String,

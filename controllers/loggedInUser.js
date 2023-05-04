@@ -1,23 +1,26 @@
 const Post = require("../models/Post");
 
 const AuthPage = async (req, res) => {
-  const month = req.body.month;
-  const day = req.body.day;
-  const year = req.body.year;
-  const date = `${day}.${month}.${year}`;
-  const paivays = new Date(date);
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().sort({ dateNew: -1 });
+/*     const month = req.body.month;
+    const day = req.body.day;
+    const year = req.body.year;
+    const date = `${day}.${month}.${year}`;
+    const paivays = new Date(date) */;  
 
     if (posts) {
       const simplifiedPosts = posts.map((post) => {
+        const date = new Date(post.date);
+        const dateNew = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
+        const time = `${date.getHours()}.${date.getMinutes()}`
         return {
           _id: post._id,
           username: post.username,
           content: post.content,
-          date: post.date,
-          //img: post.img
+          date: dateNew + " " + time
         };
+        
       });
       res.render("authenticatedUser", { posts: simplifiedPosts, firstname: req.user.firstname,
         lastname: req.user.lastname, });
@@ -80,6 +83,27 @@ const updatePost = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+const createPost = async (req, res) => {
+  try {
+    const  content  = req.body.content;
+    const username = req.user.firstname;
+ /*    const month = req.body.month;
+    const day = req.body.day;
+    const year = req.body.year;
+    const date = `${day}.${month}.${year}`;
+    const paivays = new Date(date);  */
+    const date = new Date();
+
+
+    const newPost = new Post({ content, username, date });
+    await newPost.save();
+
+    res.redirect("/AuthPage");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
 
 
  
@@ -88,5 +112,6 @@ module.exports = {
   deletePost,
   deletePostById,
   editPost,
-  updatePost 
+  updatePost,
+  createPost 
 };

@@ -6,6 +6,14 @@
 
 <h2 class="latestPost">Latest Posts</h2>
 
+<article class="addPost">
+  <form method="POST" action="/create-post">
+  <label for="content">Create a new post:</label>
+  <textarea id="content" name="content"></textarea>
+  <button type="submit">Add Post</button>
+  </form>
+</article>
+
 {{#each posts}}
 <article class="post">
   <p class="id" hidden>{{_id}}</p>
@@ -44,7 +52,5 @@
 }
 
 window.onload = function() {
-  // existing code goes here
 };
 </script>
-<!--Styling for this page. Maybe it is already there-->
