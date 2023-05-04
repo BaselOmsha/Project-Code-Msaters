@@ -1,0 +1,56 @@
+
+<section class="welcome">
+  
+  <p>Here you can find latest posts by our users. You can also contribute by adding your own posts.</p>
+</section>
+
+<h2 class="latestPost">Latest Posts</h2>
+
+<article class="addPost">
+  <form method="POST" action="/create-post">
+  <label for="content">Create a new post:</label>
+  <textarea id="content" name="content"></textarea>
+  <button type="submit">Add Post</button>
+  </form>
+</article>
+
+{{#each posts}}
+<article class="post">
+  <p class="id" hidden>{{_id}}</p>
+  <p class="username">{{username}}</p>
+  <p class="content">{{content}}</p>
+  <p class="date">{{date}}</p>
+  
+    <a href="/guest/{{_id}}" class="delete-edit" role="button" onclick="confirmDelete('{{_id}}')">Delete <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+
+    <a href="/guest/edit/{{_id}}" class="delete-edit" role="button">Edit <i class="fa fa-edit" aria-hidden="true"></i></a>
+  </form>
+</article>
+{{/each}}
+<script>
+  function confirmDelete(_id) {
+  if (confirm("Are you sure you want to delete this post?")) {
+    res.redirect("/guest");
+    // if the user confirms, send a DELETE request to the server to delete the post
+    fetch(`/guest/${_id}`, {
+      method: "DELETE",
+    })
+  
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to delete post");
+        }
+        // reload the page after the post is deleted
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to delete post");
+      });
+  }
+}
+
+window.onload = function() {
+};
+</script>

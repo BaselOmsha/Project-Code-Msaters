@@ -1,0 +1,25 @@
+<div class="login-form-main-area" aria-labelledby="login-heading">
+  <div class="login-title">
+    <h1 id="login-heading">Log In</h1>
+    {{messages}}
+  </div>
+  <div class="login form" role="form" aria-labelledby="login-form">
+    <form id="login-form" method="post" action="../login" title="Login Form">
+      <div class="login-form-row">
+        <label class="login-field-lable" for="email">Email</label>
+        <input class="login-field-input" type="email" id="email" name="email" required>
+      </div>
+      <div class="login-form-row">
+        <label class="login-field-lable" for="password">Password</label>
+        <input class="login-field-input" type="password" id="password" name="password" required>
+      </div>      
+      <button class="loginbutton" id="loginbutton" type="submit">Log in</button>     
+    </form>
+    <div class="forgot-password-form">
+      <label class="forgot-password-label" for="password">Forgot your password?</label>
+      <a href="../newpassword">Get a new password</a>
+    </div>    
+  </div>
+  <div class="create_account">Don't have an account? <a href="../registration">Signup</a></div>
+  <div class="create_account">Don't have an account? <a href="../guest">Continue as a guest</a></div>
+</div>
