@@ -4,3 +4,7 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+
+const User = require('../model/User');
+
+const newpassword = 
