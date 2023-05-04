@@ -38,7 +38,7 @@ router.post('/create-post', loginController.isAuthenticated, readController.crea
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/AuthPage',
     failureRedirect: '/',
-    faliureFlash: true,
+    failureFlash: true,
 }));
 
 //router.get('/newpassword', loginController.newpassword);

@@ -2,7 +2,7 @@ const Post = require("../models/Post");
 // landing page after login
 const AuthPage = async (req, res) => {
   try {
-    const posts = await Post.find().sort({ dateNew: -1 });
+    const posts = await Post.find().sort({ date: -1 });
     if (posts) {
       const simplifiedPosts = posts.map((post) => {
         const date = new Date(post.date);
