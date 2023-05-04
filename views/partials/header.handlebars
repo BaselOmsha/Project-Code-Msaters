@@ -12,17 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" href="../profile">Profile</a>
         </li>
-          {{#if firstname}}
-          
-          <li class="nav-item active">
-            <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
-            <p>{{firstname}} {{lastname}}</p>
-          </li>
-          {{else}}
-          <li class="nav-item active">
-            <a class="nav-link" href="../">Login<span class="sr-only">(current)</span></a>
-          </li>
-          {{/if}}
+        {{#if firstname}}
+        <li class="nav-item active">
+          <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+          <p>{{firstname}} {{lastname}}</p>
+        </li>
+        {{else}}
+        <li class="nav-item active">
+          <a class="nav-link" href="../">Login<span class="sr-only">(current)</span></a>
+        </li>
+        {{/if}}
       </ul>
     </div>
   </nav>
