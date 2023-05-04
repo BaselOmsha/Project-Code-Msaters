@@ -1,11 +1,6 @@
 const Post = require("../models/Post");
 
 const guestPage = async (req, res) => {
-/*   const month = req.body.month;
-  const day = req.body.day;
-  const year = req.body.year;
-  const date = `${day}.${month}.${year}`;
-  const paivays = new Date(date); */
   try {
     const posts = await Post.find();
 

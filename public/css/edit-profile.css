@@ -104,10 +104,25 @@
     background-color: #2546f0;
     transition: 0.4s;
     color: #fff;
+    margin-bottom: 5px;
 }
-
+.bck-btn{
+    background-color: #265429;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    min-width: 200px;
+    margin-bottom: 5px;
+}
 .editBtn:focus,
 .edit-field-inputs:focus,
 .edit-field-inputs2:focus {
     outline: 2px solid #0000ff;
-}
+}   

@@ -33,9 +33,9 @@ const userSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    hobbies:  {
+    hobbies: [ {
         type: String
-    }
+    }]
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,9 +1,4 @@
-const { getDay, getMonth, getYear } = require('../helpers/date-values');
-
-
-//const User = require('../models/User');
-
-//home/root
+//home/root and login page
 const home = async (req, res) => {
     res.render('logIn', {
         Title: "Login Page - Code Masters",
@@ -11,24 +6,6 @@ const home = async (req, res) => {
         messages: req.flash('error'),
         // page_title: "Library",
         // content: data
-    });
-}
-
-// landing page after login
-const profile = async (req, res) => {
-    res.render('profile', {
-        Title: req.user.firstname + " " + req.user.lastname + " - Code Masters",
-        _id: req.user._id,
-        firstname: req.user.firstname,
-        lastname: req.user.lastname,
-        email: req.user.email,
-        dob: req.user.dob,
-        day: getDay(req.user.dob),
-        month2: getMonth(req.user.dob),
-        year: getYear(req.user.dob),
-        gender: req.user.gender,
-        description: req.user.description,
-        hobbies: req.user.hobbies
     });
 }
 
@@ -68,7 +45,6 @@ const newpassword = (req,res, next) => {
 */
 module.exports = {
     home,
-    profile,
     isAuthenticated,
     checkNotAuthenticated,
     logout

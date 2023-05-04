@@ -9,6 +9,7 @@ const { editPage, updateProfile } = require('../controllers/edit-profile.js');
 const { validateProfileForm, validationProfile } = require('../helpers/edit-profile-validation.js');
 const readController = require("../controllers/loggedInUser.js");//change the routes
 const guestPage = require('../controllers/guestUser.js');
+const { profile } = require('../controllers/profile.js');
 //const deleteController = require("../controllers/deletePost.js");
 
 
@@ -34,30 +35,18 @@ router.post('/guest/update/:_id', loginController.isAuthenticated, readControlle
 router.post('/create-post', loginController.isAuthenticated, readController.createPost);
 
 
-
-// loginauthentication with passport
-// router.post('/login', passport.authenticate('local', {
-//     successRedirect: '/profile',
-//     failureRedirect: '/',
-//     faliureFlash: true,
-// }), (req, res) => {
-//     console.log('the request: ' + req.user);
-// });
-
 // loginauthentication with passport
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/AuthPage',
     failureRedirect: '/',
     faliureFlash: true,
-}), (req, res) => {
-    console.log('the request: ' + req.user);
-});
+}));
 
 //router.get('/newpassword', loginController.newpassword);
 router.get('/AuthPage', loginController.isAuthenticated, readController.AuthPage);
 
 //router.get('/newpassword', loginController.newpassword);
-router.get('/profile', loginController.isAuthenticated, loginController.profile);
+router.get('/profile', loginController.isAuthenticated, profile);
 
 // Logout function
 router.get('/logout', loginController.logout);
@@ -66,7 +55,10 @@ router.get('/logout', loginController.logout);
 router.get('/edit-profile/:_id', loginController.isAuthenticated, editPage)
 
 // Update function
-router.post('/update-profile/:_id', loginController.isAuthenticated, /*alidateProfileForm, validationProfile,*/ updateProfile);
+router.post('/update-profile/:_id', loginController.isAuthenticated, validateProfileForm, validationProfile, updateProfile);
+
+// delete profile function
+router.post('/delete-profile/:_id', deleteProfile);
 
 
 module.exports = router;

@@ -22,14 +22,20 @@
                 </li>
             </ul>
         </div>
-        <a href="../edit-profile/{{_id}}" class="edit-profile" role="button">Edit your info</a>
+        <a href="../edit-profile/{{_id}}" class="edit-btn" role="button">Edit your info</a>
+        {{!-- <a href="../delete-profile/{{_id}}" class="delete-btn" role="button">Delete your profile</a> --}}
+        <form method="POST" action="../delete-profile/{{_id}}">
+            <button type="submit" class="delete-btn">Delete your profile</button>
+        </form>
     </section>
     <section class="profile-right-lower-block">
         <section class="profile-desc-card">
             <li>
                 <strong>Description:</strong>
                 {{#if description}}
-                <P>{{description}}</P>
+                <ul>
+                    <P>{{description}}</P>
+                </ul>
                 {{else}}
                 <ul>Nothing yet</ul>
                 {{/if}}
@@ -39,7 +45,9 @@
             <li>
                 <strong>Hobbies:</strong>
                 {{#if hobbies}}
-                <P>{{hobbies}}</P>
+                {{#each hobbies}}
+                <ul>{{this}}</ul>
+                {{/each}}
                 {{else}}
                 <ul>Nothing yet</ul>
                 {{/if}}
