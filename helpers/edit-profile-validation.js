@@ -53,18 +53,25 @@ const validateProfileForm =
             .normalizeEmail()
             .isEmail()
             .withMessage('Invalid email format')
-            .custom(async (email) => {
-                // const id = req.body._id
-                // console.log("tesssssssssssst!!!!: " + id);
-                const user = await User.find({ email: email }, {email:1, _id:1});
-                console.log("tesssssssssssst!!!!: " + user._id +user.email);
-                if (user.length > 0 && !user._id) {
-                    throw new Error('E-mail is already in use!');
-                } else if(user.length > 0 && user._id) {
-                    console.log("good email");
-                    return true;
-                }
-                return true;
+            .custom(async (email, { req }) => {
+                    email = req.body.email;
+                    const id = req.body._id;
+                    console.log("terstestestete: " + email + " " + id)
+                    const user = await User.find({ email: email }, {_id:1, email:1});
+                    // console.log("terstestesteti: " + user[0].email.toString() + " " + user[0]._id.toString())
+                    if (user.length > 0) {
+                        if (user[0]._id.toString() !== id && user[0].email === email) {
+                            throw new Error('E-mail is already in use!');
+                        } else if(user[0]._id.toString() === id && user[0].email === email) {
+                            console.log("good email");
+                        } else if (user.length < 0){
+                            console.log("email is still the same");
+                        } else if(user === null) {
+                            console.log("new email updated");
+                        }
+                    } else {
+                        return true;
+                    }
             })
             // .withMessage('E-mail is already in use')
             .escape(),
@@ -83,9 +90,11 @@ const validationProfile = async (req, res, next) => {
         errors[field] = message;
     });
     console.log(errors);
-    const { _id, firstname, lastname, email, password, paswdConfirm, month, day, year, gender } = req.body;
+    const _id = req.params._id;
+    const hobbies = req.body.hobbies.split(",").map((hobbies) => hobbies.trim())
+    const { firstname, lastname, email, password, paswdConfirm, month, day, year, gender, description } = req.body;
     const agevarify = await calcAge(month, day, year) // validate age
-    const values = { _id, firstname, lastname, email, password, paswdConfirm, month, day, year, gender };
+    const values = { _id, firstname, lastname, email, password, paswdConfirm, month, day, year, gender, description, hobbies };
     res.render('edit-profile', { errors, values, agevarify });
 };
 

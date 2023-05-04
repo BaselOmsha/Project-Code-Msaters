@@ -1,5 +1,5 @@
 const Post = require("../models/Post");
-
+// landing page after login
 const AuthPage = async (req, res) => {
   const month = req.body.month;
   const day = req.body.day;

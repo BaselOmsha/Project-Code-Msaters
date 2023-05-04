@@ -9,12 +9,14 @@
                 <li>For the first and last name fields, ensure they are at least 2 characters long.</li>
                 <li>For the email field, ensure it's a valid email address, and not already in use.</li>
                 <li>You must be 13 years or older to create an account and use our services!</li>
+                <li>To add multiple hobbies in the hobby field, seperatet them using a comma ",".</li>
             </ul>
         </div>
     </div>
     {{#if errors}}
     <div class="edit-form" role="form" aria-labelledby="edit-form">
-        <form class="" id="edit-form" action="../update-profile" method="post">
+        <form class="" id="edit-form" action="../update-profile/{{values._id}}" method="post">
+            <input type="hidden" name="_id" value="{{values._id}}">
             <div class="edit-form-row">
                 <label class="edit-field-lables" for="firstname">First Name</label>
                 <input class="edit-field-inputs" type="text" id="firstname" name="firstname"
@@ -233,11 +235,24 @@
                 </select>
                 <span class="edit-err" id="gender-error">{{ errors.gender }}</span>
             </div>
+            <div class="edit-form-row">
+                <label class="edit-field-lables" for="description">Description</label><span
+                    class="optional-field">(Optional)</span></label>
+                <textarea class="edit-field-inputs" cols="30" rows="10" type="text" id="description" name="description"
+                    placeholder="Smith">{{values.description}}"</textarea>
+            </div>
+            <div class="edit-form-row">
+                <label class="edit-field-lables" for="hobbies">Hobbies</label><span class="optional-field">(Optional)
+                    separate hobbies, with a comma</span></label>
+                <input class="edit-field-inputs" type="text" id="hobbies" name="hobbies" value="{{values.hobbies}}"
+                    placeholder="Smith" multiple>
+            </div>
             <Button class="editBtn" id="editBtn" type="submit">Update</Button>
         </form>
         {{else}}
         <div class="edit-form" role="form" aria-labelledby="edit-form">
             <form class="" id="edit-form" action="../update-profile/{{_id}}" method="post">
+                <input type="hidden" name="_id" value="{{_id}}">
                 <div class="edit-form-row">
                     <label class="edit-field-lables" for="firstname">First Name</label>
                     <input class="edit-field-inputs" type="text" id="firstname" name="firstname" value="{{firstname}}"
@@ -456,9 +471,22 @@
                     </select>
                     <span class="edit-err" id="gender-error">{{ errors.gender }}</span>
                 </div>
+                <div class="edit-form-row">
+                    <label class="edit-field-lables" for="description">Description</label><span
+                        class="optional-field">(Optional)</span>
+                    <textarea class="edit-field-inputs" cols="30" rows="10" type="text" id="description"
+                        name="description" value="" placeholder="Smith">{{description}}</textarea>
+                </div>
+                <div class="edit-form-row">
+                    <label class="edit-field-lables" for="hobbies">Hobbies</label><span
+                        class="optional-field">(Optional) separate hobbies, with a comma</span>
+                    <input class="edit-field-inputs" type="text" id="hobbies" name="hobbies" value="{{hobbies}}"
+                        placeholder="Smith" multiple>
+                </div>
+
                 <Button class="editBtn" id="editBtn" type="submit">Update</Button>
             </form>
             {{/if}}
-            <a href="../profile/" class="edit-profile" role="button">Back</a>
+            <a href="../profile/" class="bck-btn" role="button">Back</a>
         </div>
     </div>

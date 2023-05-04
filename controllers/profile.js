@@ -1,6 +1,25 @@
 const { getDay, getMonth, getYear } = require('../helpers/date-values');
 const User = require('../models/User');
 
+// profile page
+const profile = async (req, res) => {
+    res.render('profile', {
+        Title: req.user.firstname + " " + req.user.lastname + " - Code Masters",
+        // _id: req.params._id,
+        _id: req.user._id,
+        firstname: req.user.firstname,
+        lastname: req.user.lastname,
+        email: req.user.email,
+        dob: req.user.dob,
+        day: getDay(req.user.dob),
+        month2: getMonth(req.user.dob),
+        year: getYear(req.user.dob),
+        gender: req.user.gender,
+        description: req.user.description,
+        hobbies: req.user.hobbies.map((hobbies) => hobbies)
+    });
+}
+
 // edit profile page
 const editPage = async (req, res) => {
     res.render('edit-profile', {
@@ -19,6 +38,7 @@ const editPage = async (req, res) => {
     });
 }
 
+// update function
 const updateProfile = async (req, res) => {
     try {
         const userId = req.params._id;
@@ -35,6 +55,8 @@ const updateProfile = async (req, res) => {
         const formattedDate = paivays.toLocaleDateString(options);
         // console.log(formattedDate);
         const gender = req.body.gender;
+        const description = req.body.description;
+        const hobbies = req.body.hobbies.split(",").map((hobbies) => hobbies.trim())
 
         if (!firstname || !lastname || !email || !formattedDate) {
             res.status(400).send(
@@ -44,7 +66,7 @@ const updateProfile = async (req, res) => {
             const user = await User.updateOne({ _id: userId }, {
                 $set: {
                     firstname: firstname, lastname: lastname, email: email,
-                    dob: formattedDate, gender: gender
+                    dob: formattedDate, gender: gender, description: description, hobbies: hobbies
                 }
             })
             if (user) {
@@ -61,7 +83,22 @@ const updateProfile = async (req, res) => {
     }
 }
 
+const deleteProfile = async (req, res) => {
+    try {
+        const userId = req.params._id;
+        const deleteUser = await User.findByIdAndDelete(userId);
+        if(deleteUser) {
+            console.log("deletion process successeded!");
+            res.redirect("../profile");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
+    profile,
     editPage,
-    updateProfile
+    updateProfile,
+    deleteProfile
 };
