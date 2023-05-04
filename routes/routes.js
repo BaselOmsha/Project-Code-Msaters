@@ -5,11 +5,10 @@ const loginController = require('../controllers/login.js');
 const signupController = require('../controllers/signup.js');
 
 const { validateSignupForm, validation } = require('../helpers/signup-validation.js');
-const { editPage, updateProfile } = require('../controllers/edit-profile.js');
+const { editPage, updateProfile, profile, deleteProfile } = require('../controllers/profile.js');
 const { validateProfileForm, validationProfile } = require('../helpers/edit-profile-validation.js');
 const readController = require("../controllers/loggedInUser.js");//change the routes
 const guestPage = require('../controllers/guestUser.js');
-const { profile } = require('../controllers/profile.js');
 //const deleteController = require("../controllers/deletePost.js");
 
 
