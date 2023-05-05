@@ -1,16 +1,15 @@
 
 <section class="welcome">
-  
   <p>Here you can find latest posts by our users. You can also contribute by adding your own posts.</p>
 </section>
 
-<h2 class="latestPost">Latest Posts</h2>
+<h1 class="latestPost">Latest Posts</h1>
 
 <article class="addPost">
   <form method="POST" action="/create-post">
-  <label for="content">Create a new post:</label>
-  <textarea id="content" name="content"></textarea>
-  <button type="submit">Add Post</button>
+    <label for="content">Create a new post:</label>
+    <textarea id="content" name="content"></textarea>
+    <button type="submit">Add Post</button>
   </form>
 </article>
 
@@ -20,10 +19,7 @@
   <p class="username">{{username}}</p>
   <p class="content">{{content}}</p>
   <p class="date">{{date}}</p>
-  
     <a href="/guest/{{_id}}" class="delete-edit" role="button" onclick="confirmDelete('{{_id}}')">Delete <i class="fa fa-trash-o" aria-hidden="true"></i></a>
-
-
     <a href="/guest/edit/{{_id}}" class="delete-edit" role="button">Edit <i class="fa fa-edit" aria-hidden="true"></i></a>
   </form>
 </article>
