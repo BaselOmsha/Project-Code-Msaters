@@ -64,11 +64,11 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 ---
 
-### Nori Alija (branches used: readPost, version0.2)
+## Nori Alija (branches used: readPost, version0.2)
 
-1. Functions created:
+### Functions created:
 
-   **Function to read the posts from Mongodb**
+**Function to read the posts from Mongodb**
 
 > This function retrieves all the posts from the database, sorts them in descending order based on their date field, and then renders the authenticatedUser view with the list of posts and the current user's firstname.
 
@@ -90,27 +90,27 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 > deletePostById function takes the \_id of the post to be deleted as a parameter, and uses it to find and delete the post from the database.
 
-## Accessibility of the user interface
+### Accessibility of the user interface
 
 From the accessibility point of view:
 
-1. I made sure that colour contrast is sufficient.
+1. I made sure that colour contrasts are sufficient.
 
-2. In the main content I made sure that font is accessible.
+2. In the main content I used accessible font.
 
-3. Font-sizes were set large enough.
+3. Font-sizes are set large enough.
 
 4. Made sure that the user interface doesn’t brake when zoomed to 200%.
 
 5. I used descriptive names in the URL and navigation.
 
-## Accessibility of the code produced
+## Accessibility of the code
 
 From the accessibility point of view:
 
 1. I made sure that the HTML code was semantic
 
-2. In some of the form elements I added for and id information to associate different elements
+2. In some of the form elements I added "for" and "id" to associate different elements
 
 ```html
 <article class="addPost">
@@ -138,15 +138,15 @@ From the accessibility point of view:
 
 5. I made sure that my pages includes h1 element
 
-## Accessibility evaluation
+### Accessibility evaluation
 
 For testing the outcomes I used:
 
-1. keyboard navigation testing
+1. Keyboard navigation testing: Tested pages only with keyboard
 
-2. Siteimprove evaluation tool (addon for Chrome)
+2. Siteimprove evaluation tool (addon for Chrome): Evaluated WCGA 2.1 AA level accessibility criteria
 
-3. NVDA screenreader
+3. NVDA screen reader: Checked the page content through via keyboard and screen reader
 
 Some small issues came up while testing and those were fixed. For eg. heading order, font-size, colour contrast.
 
