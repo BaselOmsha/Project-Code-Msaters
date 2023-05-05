@@ -37,6 +37,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 2. When deleting a post, shows a confirmation message but it does not matter where you click it always deletes it
 3. When creating new account, the user is not shown a confirmation message same with deleting and updating the profile(more time is needed)
 4. One part of the navigation bar is not accessible (Javascript needed)
+5. Change password not implemented in the edit profile (more time is needed)
 
 ---
 
@@ -71,7 +72,6 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 ### Basil Omsha (branches used: profile, signup(deleted)):
 
-1. Signup page:
 
    1. Created a function to allow user to create an account and save it to the database. An express-validator function named "signup-validation" is created to validate:
 
@@ -81,10 +81,12 @@ In this project we are building a social media platform using NodeJS and MongoDB
       4. The "Confirm Password" matches the password
       5. Day, month, year are not empty
 
-      Additionally, a "ageValidation" named function is created to check that the user is at least 13 years of age or older. The function then is used in the express-validator (signup-validation.js". Another function called paswdEncryption that utilizes bcrypt library is created to hash the password in the database.
+      Additionally, a "ageValidation" named function is created to check that the user is at least 13 years of age or older. The function then is used in the express-validator (signup-validation.js"). Another function called paswdEncryption that utilizes bcrypt library is created to hash the password in the database.
 
    2. Signup frontend design with its CSS.
-   3. Signup page accessibility: To improve accessibility for the signup page, semantic elements are used. All the web pages in this webapp use the same header, footer, and main styling, so div tags are needed to contain the form and other elements. The first div contains all the elements of the page, and to make it accessible, an aria-labelledby is assigned to it as follow:
+   3. Profile page that gets the user info from the session, edit function with its validation from similar to the signup.However the it also check if the email is found in the database but its id is the logged in user id it allows the update process, but of the ide in the database is different, it means the email is already in use by someone else and asks the user to pick a different email.
+   4. Helped with the passport implementation for the login.
+   5. Signup page accessibility: To improve accessibility for the signup page, semantic elements are used. All the web pages in this webapp use the same header, footer, and main styling, so div tags are needed to contain the form and other elements. The first div contains all the elements of the page, and to make it accessible, an aria-labelledby is assigned to it as follow:
 
       ```html
       <div class="signup-form-main-area" aria-labelledby="signup-heading">
@@ -141,5 +143,8 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
       1. https://www.w3.org/WAI/tutorials/forms/
       2. https://venngage.com/tools/accessible-color-palette-generator
+   
+   
+   6. The update form and profile page accessibility: the update form is implemented similarly to the signup form. However, in the profile to make the page responsive, media query  is used targeting diffrent classes in the page to insure the page being responsive in different screen sizes. color schema is also picked to be accessible. Pages were tested with NVDA screen reader, siteimprove and wave browser extensions. 
 
 ---

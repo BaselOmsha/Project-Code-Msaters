@@ -1,13 +1,13 @@
 <div class="login-form-main-area" aria-labelledby="login-heading">
   <div class="login-title">
     <h1 id="login-heading">Log In</h1>
-    {{messages}}
   </div>
   <div class="login form" role="form" aria-labelledby="login-form">
+     <i class="w-e-p">{{messages}}</i>
     <form id="login-form" method="post" action="../login" title="Login Form">
       <div class="login-form-row">
         <label class="login-field-lable" for="email">Email</label>
-        <input class="login-field-input" type="email" id="email" name="email" required>
+        <input class="login-field-input" type="email" id="email" name="email" required>   
       </div>
       <div class="login-form-row">
         <label class="login-field-lable" for="password">Password</label>

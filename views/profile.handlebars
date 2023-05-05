@@ -1,10 +1,10 @@
 <div class="profile-main">
     <section class="profile-left-upper-block">
         <h1>
-            {{firstname}}
-            {{lastname}}
+            {{firstname}} {{lastname}}'s Profile
         </h1>
         <div class="basic-info">
+             <h2>Basic Information</h2>
             <ul>
                 <li>
                     <strong>Email:</strong>
@@ -30,28 +30,26 @@
     </section>
     <section class="profile-right-lower-block">
         <section class="profile-desc-card">
-            <li>
-                <strong>Description:</strong>
+            <h2>Description:</h2>
                 {{#if description}}
                 <ul>
-                    <P>{{description}}</P>
+                    <li>{{description}}</li>
                 </ul>
                 {{else}}
                 <ul>Nothing yet</ul>
                 {{/if}}
-            </li>
         </section>
         <section class="profile-hobbies-card">
-            <li>
-                <strong>Hobbies:</strong>
+             <h2>Hobbies:</h2>
+            <ul>
                 {{#if hobbies}}
                 {{#each hobbies}}
-                <ul>{{this}}</ul>
+                <li>{{this}}</li>
                 {{/each}}
                 {{else}}
-                <ul>Nothing yet</ul>
+                <li>Nothing yet</li>
                 {{/if}}
-            </li>
+            </ul>
         </section>
     </section>
 </div>

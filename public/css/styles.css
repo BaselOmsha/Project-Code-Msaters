@@ -24,9 +24,9 @@ footer {
 }
 
 .navbar ul {
-  margin-left: 36rem;
-  font-size: 1.4em;
-  text-transform: uppercase;
+  margin-left: 5rem;
+  font-size: 20px;
+  /* text-transform: uppercase; */
 }
 
 .navbar-brand {
@@ -43,6 +43,7 @@ footer {
 
 .nav-item2 {
   font-size: 0.85em;
+  margin-left:1rem;
 }
 
 a.nav-link:active {
