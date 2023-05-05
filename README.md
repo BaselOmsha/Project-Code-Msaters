@@ -70,7 +70,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 
 ---
 
-### Basil Omsha (branches used: profile, signup(deleted)):
+### Basil Omsha (branches used: profile, edit/delete-profiles, signup(deleted), master):
 
 
    1. Created a function to allow user to create an account and save it to the database. An express-validator function named "signup-validation" is created to validate:
