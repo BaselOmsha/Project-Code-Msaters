@@ -67,6 +67,7 @@ In this project we are building a social media platform using NodeJS and MongoDB
 ### Nori Alija (branches used: readPost, version0.2)
 
 1. Functions created:
+
    **Function to read the posts from Mongodb**
 
 > This function retrieves all the posts from the database, sorts them in descending order based on their date field, and then renders the authenticatedUser view with the list of posts and the current user's firstname.
@@ -149,7 +150,11 @@ For testing the outcomes I used:
 
 Some small issues came up while testing and those were fixed. For eg. heading order, font-size, colour contrast.
 
+
+![Accessibilyt2 (Phone)](https://user-images.githubusercontent.com/89585906/236539507-e4272161-0be9-4ecc-af23-64eba573f3b0.png)
+
 ---
+
 
 ### Basil Omsha (branches used: profile, edit/delete-profiles, signup(deleted), master):
 
